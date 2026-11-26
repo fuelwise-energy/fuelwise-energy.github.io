@@ -197,7 +197,7 @@ input,select{background:#0d2033!important;color:#e7f0fa!important;border-color:#
         </div>
         <div class="bar"><i id="kBar" style="width:0%"></i></div>
         <div class="kpi-grid" style="margin-top:14px">
-          <div class="kpi"><div class="l">NPHR Forecast</div><div class="v" id="kNphrIO"></div><div id="nphrStatus"></div></div>
+          <div class="kpi"><div class="l">NPHR I/O Unit</div><div class="v" id="kNphrIO"></div><div id="nphrStatus"></div></div>
           <div class="kpi"><div class="l">NPHR Baseline</div><div class="v" id="kNphrUji">–</div></div>
           <div class="kpi"><div class="l">SFC Baseline</div><div class="v" id="kSfcUji">–</div></div>
           <div class="kpi"><div class="l">SFC Forecast</div><div class="v" id="kSfcReal">–</div></div>
@@ -865,8 +865,6 @@ function recalc(){
   document.getElementById('kBar').style.background = terpenuhi? 'var(--ok-ink)':'var(--bad-ink)';
 
   document.getElementById('kNphrIO').innerHTML = fmt(nphrIO)+' <small>kcal/kWh</small>';
-  const nphrOk = nphrIO <= nphrUji;
-  document.getElementById('nphrStatus').innerHTML = `<span class="chip ${nphrOk?'ok':'bad'}">${nphrOk?'TERCAPAI':'TIDAK TERCAPAI'}</span>`;
   document.getElementById('kNphrUji').innerHTML = nz(nphrUji,v=>fmt(v)+' <small>kcal/kWh</small>');
   document.getElementById('kSfcUji').innerHTML = nz(sfcUji,v=>v.toFixed(4)+' <small>kg/kWh</small>');
   const sfcOk = sfcReal<=params.sfc;
